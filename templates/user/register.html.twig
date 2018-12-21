@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrierung{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <style>
+        #content
+        {
+            max-width: 400px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,17 @@
+<div class="post" data-post-id="{{ post_id }}">
+    <div class="author">
+        <a href="http://{{ http_root }}/profile/{{ author_id }}">{{ author }}</a>
+        <p class="datetime">{{ datetime }}</p>
+    </div>
+    <div class="text">
+        {{ content }}
+    </div>
+    <div class="bar">
+        <div class="hates">{{ hates }}</div>🖕
+        <button class="bt_comment">📝 Kommentieren</button>
+        <button data-hated="{{ hated }}" class="bt_hate">🖕 {{ hate_button_text }}</button>
+    </div>
+        <textarea class="new_comment" placeholder="Kommentieren..."/>
+    <div class="comments">
+    </div>
+</div>

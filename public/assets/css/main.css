@@ -1,0 +1,121 @@
+header .navbar-brand img {
+    height: 30px;
+}
+
+nav #search .btn img {
+    height: 24px;
+    width: 24px;
+}
+
+.bg-orange {
+    background-color: #f14c38;
+}
+
+.navbar-orange .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .8);
+}
+
+.navbar-orange .navbar-nav .nav-link:hover,
+.navbar-orange .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 1);
+}
+
+#content
+{
+    padding-top: 5px;
+}
+
+.user > .col-2 > img {
+    width: inherit;
+}
+
+#user-info {
+    border-collapse: separate;
+    border-spacing: 10px 0;
+}
+
+.user td a, .user td a:hover {
+    text-decoration: none;
+}
+
+.edit-profile img, .save-profile img, .cancel-profile img {
+    height: 12px;
+}
+
+#user-info td:last-child.edit span,
+.edit-profile,
+.save-profile,
+.cancel-profile,
+#user-info td:last-child input {
+    display: none;
+}
+
+#user-info td:last-child:not(.edit):hover .edit-profile,
+#user-info .edit-profile:hover,
+#user-info td:last-child.edit .save-profile,
+#user-info td:last-child.edit .cancel-profile,
+#user-info td:last-child.edit input {
+    display: initial;
+}
+
+#profile-picture.self {
+    position: relative;
+}
+
+#profile-picture.self img {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+#profile-picture.self .overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#profile-picture.self:hover > img {
+    opacity: 0.3;
+}
+
+#profile-picture.self:hover .overlay {
+    opacity: 1;
+}
+
+#profile-picture.self .edit-picture img {
+    height: 24px;
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-lg .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 59px;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    overflow-x: hidden;
+    overflow-y: auto;
+}

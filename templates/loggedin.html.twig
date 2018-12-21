@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" id="content" class="col-md-9 mr-sm-auto col-lg-10 pt-3 px-4">
+            <div class="mt-3">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }} alert-dismissible">
+                            {{ message }}
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            {% block body %}{% endblock %}
+        </main>
+        <div class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                {% block chat %}
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        {% include 'chat/chat.html.twig' %}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

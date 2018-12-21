@@ -1,0 +1,10 @@
+<ul id="chats" data-sender="{{ app.user.id }}">
+    {% for enemy in enemy_management.getEnemies(app.user.id) %}
+        <li id="chat-enemy-{{ enemy.id }}" class="chat-enemy">
+            <a href="#" data-id="{{ enemy.id }}" class="open-chat"><img src="{{ enemy.getPicturePath() }}"> {{ enemy.firstName }} {{ enemy.lastName }}</a>
+            <svg class="d-none" height="10" width="10">
+                <circle cx="5" cy="5" r="5" fill="red"></circle>
+            </svg>
+        </li>
+    {% endfor %}
+</ul>

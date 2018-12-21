@@ -1,0 +1,104 @@
+body
+{
+    background-color: #e2e2e2;
+}
+.posts
+{
+    overflow: auto;
+}
+.bt_hate, .bt_comment
+{
+    float: right;
+}
+.comment
+{
+    width: 100%;
+    font-size: 0.9em;
+    border-top: 1px solid lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.comment .author
+{
+    float: left;
+    margin-bottom: 0;
+}
+.comment .datetime
+{margin-bottom:0;}
+.comment .content
+{
+    float: left;
+    font-size: 16px;
+    font-family: tahoma, sans-serif;
+    margin-left: 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.clear
+{
+    clear: both;
+}
+.post, .new_post
+{
+    background-color: #ffffff;
+    margin: 15px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 15px;
+}
+.datetime
+{
+    float:right;
+}
+.post .text
+{
+    font-size: 22px;
+    font-family: tahoma, sans-serif;
+    margin: 10px;
+}
+.post textarea, .new_post textarea
+{
+    padding: 0 5px;
+    resize: none;
+    height: 1.8em;
+    line-height: 1.7em;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 10px;
+}
+.new_comment
+{
+    margin-bottom: 10px;
+}
+.new_post textarea
+{
+    overflow: auto;
+    height: 5.4em;
+}
+.post .bar
+{
+    width: 100%;
+    display: block;
+}
+.post .hates
+{
+    float: left;
+    display: inline;
+}
+.comment .bar
+ {
+     height: 20px;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+ }
+.bt_comment_hate
+{
+    float: right;
+}

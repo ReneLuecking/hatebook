@@ -1,0 +1,12 @@
+<div class="mt-3">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible">
+                {{ message }}
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>

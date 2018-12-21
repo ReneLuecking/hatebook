@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{% block title %}Startseite{% endblock %}
+
+{% block body %}
+    <div class="new_post">
+        <form>
+            <textarea placeholder="Lass deinen Hass raus...!"></textarea>
+            <br>
+            <button type="button">Posten</button>
+        </form>
+    </div>
+    <div class="posts">
+        <p class="d-none">Keine Beiträge gefunden</p>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>HTTP_ROOT = "{{ http_root }}";</script>
+    <script src="{{ asset('js/post.js') }}"></script>
+{% endblock %}

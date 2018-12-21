@@ -1,0 +1,12 @@
+{% if self %}
+    <input name="{{ name }}" value="{{ value }}" data-value="{{ value }}" type="{{ type is defined ? type : 'text' }}">
+    <a href="#" class="edit-profile" title="Bearbeiten">
+        <img src="{{ asset('img/edit.svg') }}">
+    </a>
+    <a href="#" class="save-profile" title="Speichern">
+        <img src="{{ asset('img/save.svg') }}">
+    </a>
+    <a href="#" class="cancel-profile" title="Abbrechen">
+        <img src="{{ asset('img/close.svg') }}">
+    </a>
+{% endif %}

@@ -1,0 +1,6 @@
+<div id="user-{{ user.id }}" class="search-entry user-entry">
+    <div class="image-container">
+        <img src="{{ user.getPicturePath() }}">
+    </div>
+    <a href="{{ path('profile') }}/{{ user.id }}">{{ user.firstName }} {{ user.lastName }}</a>
+</div>

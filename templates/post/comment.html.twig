@@ -1,0 +1,10 @@
+<div class="comment" data-comment-id="{{ comment_id }}">
+       <p class="author"><a href="http://{{ http_root }}/profile/{{ author_id }}">{{ author }}</a></p>
+       <p class="datetime">{{ datetime }}</p>
+       <p class="content">{{ content }}</p>
+       <div class="bar">
+              <div class="hates">{{ hates }}</div>🖕
+              <button data-hated='{{ hated }}' class="bt_comment_hate">🖕 {{ hate_button_text }}</button>
+       </div>
+       <div class="clear"></div>
+</div>

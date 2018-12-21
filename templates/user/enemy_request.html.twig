@@ -1,0 +1,8 @@
+<div class="enemy_request">
+    <div class="image-container">
+        <img src="{{ user.getPicturePath() }}">
+    </div>
+    <a href="{{ path('profile') }}/{{ user.id }}">{{ user.firstName }} {{ user.lastName }}</a>
+    <button class="enemy_button btn btn-success" data-action="accept" data-url="/enemy/accept?initiatorId={{ initiator_id }}&recipientId={{ recipient_id }}">Annehmen</button>
+    <button class="enemy_button btn btn-danger" data-action="remove" data-url="/enemy/remove?initiatorId={{ initiator_id }}&recipientId={{ recipient_id }}">Löschen</button>
+</div>

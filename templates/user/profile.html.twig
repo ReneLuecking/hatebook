@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ self ? 'Profil' : user.firstname ~ ' ' ~ user.lastname }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% if user %}
+        <div id="user-{{ user.id }}" data-id="{{ user.id }}" class="row user">
+            <div id="profile-picture" class="col-2 {% if self %}self{% endif %}">
+                <img src="{{ picture }}">
+                {% if self %}
+                    <div class="overlay">
+                        <a href="#" class="edit-picture" title="Bearbeiten">
+                            <img src="{{ asset('img/edit.svg') }}">
+                        </a>
+                    </div>
+                    <form id="profile-picture-form" method="post" class="d-none" enctype="multipart/form-data">
+                        <input name="profile-picture" type="file">
+                        <input name="userId" value="{{ user.id }}">
+                        <input name="field" value="profile-picture">
+                    </form>
+                {% endif %}
+            </div>
+            <div class="col">
+                <table id="user-info">
+                    <tbody>
+                    <tr>
+                        <td>Vorname:</td>
+                        <td>
+                            <span>{{ user.firstname }}</span>
+                            {% include 'user/edit.html.twig' with {'name': 'firstname', 'value': user.firstname} %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nachname:</td>
+                        <td>
+                            <span>{{ user.lastName }}</span>
+                            {% include 'user/edit.html.twig' with {'name': 'lastname', 'value': user.lastname} %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>E-Mail:</td>
+                        <td>
+                            <span>{{ user.email }}</span>
+                            {% include 'user/edit.html.twig' with {'name': 'email', 'value': user.email, 'type': 'email'} %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Geburtstag:</td>
+                        <td>
+                            <span>{{ user.birthday|date('d.m.Y') }}</span>
+                            {% include 'user/edit.html.twig' with {'name': 'birthday', 'value': user.birthday|date('Y-m-d'), 'type': 'date'} %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% if self == false %}
+                <div class="col-4">
+                    <button class="btn {{ ajax_action == '/enemy/add' or ajax_action == '/enemy/accept' ? 'btn-success' : 'btn-danger' }}" data-url="http://{{ http_root }}{{ ajax_action }}?&initiatorId={{ initiator_id }}&recipientId={{ recipient_id }}" id='toggle_enemy'>{{ enemy_button_text }}</button>
+                </div>
+            {% endif %}
+        </div>
+        {% if self == true %}
+            <div class="row user-list enemy_requests d-none">
+                <h5>Feindschaftsanfragen:</h5>
+            </div>
+        {% endif %}
+        <div class="row user-list enemies d-none">
+            <h5>Feinde:</h5>
+        </div>
+    {% else %}
+        <p>Benutzer nicht gefunden</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let SELF = {{ self ? 'true' : 'false' }};
+    </script>
+    <script src="{{ asset('js/profile.js') }}"></script>
+{% endblock %}

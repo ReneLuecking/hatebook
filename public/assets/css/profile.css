@@ -1,0 +1,28 @@
+#content {
+    background: #e2e2e2;
+    min-height: 100vh;
+}
+
+.user, .user-list {
+    margin: 15px 10vw;
+    background: white;
+    padding: 15px;
+}
+
+.user-list > div {
+    border-bottom: 1px solid #dee2e6;
+    width: 100%;
+    padding: 5px;
+}
+
+.user-list > div .image-container {
+    display: inline-block;
+    height: 72px;
+    width: 72px;
+    margin-right: 10px;
+}
+
+.user-list > div .image-container img {
+    max-height: 72px;
+    max-width: 72px;
+}

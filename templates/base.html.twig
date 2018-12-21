@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous" />
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
+            {% endif %}
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'header.html.twig' %}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <div class="container-fluid">
+                <div class="row">
+                    <main role="main" id="content" class="col-md-9 mr-sm-auto col-lg-10 pt-3 px-4">
+        {% else %}
+            <div id="content" class="container">
+        {% endif %}
+                        {% include 'flashes.html.twig' %}
+                        {% block body %}{% endblock %}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    </main>
+                    <div class="col-md-2 d-none d-md-block bg-light sidebar">
+                        {% block chat %}
+                            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                                {% include 'chat/chat.html.twig' %}
+                            {% endif %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            </div>
+        {% endif %}
+        {% block javascripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs=" crossorigin="anonymous"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <script src="{{ asset('js/chat.js') }}"></script>
+            {% endif %}
+        {% endblock %}
+    </body>
+</html>
